@@ -1,15 +1,22 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom';
+
 import './App.css';
+import { Signup } from './pages/signup';
+import { Home } from './pages/home';
 
 function App() {
   return (
-    <Fragment>
-      <header className="App-header">
-        <h1>Ticket Tracker App</h1>
-        <br/>
-        <p>Signup | Login</p>
-      </header>
-    </Fragment>
+    <Router>
+      <Switch>
+        <Route exact path='/' component={Home}/>
+        <Route path='/auth/signup' component={Signup} />
+      </Switch>
+    </Router>
   );
 }
 
