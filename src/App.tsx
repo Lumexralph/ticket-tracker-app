@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -6,16 +6,20 @@ import {
 } from 'react-router-dom';
 
 import './App.css';
-import { Signup } from './pages/signup';
-import { Home } from './pages/home';
+
+// dependency injection management
+const Home =  lazy(() => import('./pages/home'));
+const Signup =  lazy(() => import('./pages/signup'));
 
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route exact path='/' component={Home}/>
-        <Route path='/auth/signup' component={Signup} />
-      </Switch>
+      <Suspense fallback={<p>Loading...</p>}>
+        <Switch>
+          <Route exact path='/' component={Home}/>
+          <Route path='/auth/signup' component={Signup} />
+        </Switch>
+      </Suspense>
     </Router>
   );
 }

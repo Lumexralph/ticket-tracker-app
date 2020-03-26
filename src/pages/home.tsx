@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 import { Link } from 'react-router-dom';
 
 
-export const Home: React.FC = () => {
+const Home = () => {
     return (
         <header className="App-header">
-            <h1>Ticket Tracker App</h1>
-            <br />
-            <nav>
-                <Link to="/auth/signup">Signup</Link>|
-                <Link to="/auth/login">Login</Link>
-            </nav>
+            <StrictMode>
+                <h1>Ticket Tracker App</h1>
+                <br />
+                <nav>
+                    <Link to="/auth/signup">Signup</Link>|
+                    <Link to="/auth/login">Login</Link>
+                </nav>
+            </StrictMode>
         </header>
     );
 }
+
+export default Home;

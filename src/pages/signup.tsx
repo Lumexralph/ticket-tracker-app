@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
-export const Signup: React.FC = () => {
+import { AuthenticationForm } from '../components/authentication-form';
+
+const Signup = () => {
     return (
-        <h2>User Signup</h2>
+        <Fragment>
+            <h2>User Signup</h2>
+            <AuthenticationForm />
+        </Fragment>
     );
 }
+
+export default Signup;
