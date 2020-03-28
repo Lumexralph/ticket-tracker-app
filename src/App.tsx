@@ -13,7 +13,7 @@ function App() {
       <Suspense fallback={<p>Loading...</p>}>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/auth/signup" component={Signup} />
+          <Route exact path="/auth/signup" component={Signup} />
         </Switch>
       </Suspense>
     </Router>

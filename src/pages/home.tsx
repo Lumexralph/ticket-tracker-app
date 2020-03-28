@@ -1,18 +1,23 @@
 import React, { StrictMode } from "react";
-import { Link } from "react-router-dom";
+
+import StyledHome from "../components/home";
 
 const Home = () => {
   return (
-    <header className="App-header">
+    <StyledHome.Header>
       <StrictMode>
-        <h1>Ticket Tracker App</h1>
+        <StyledHome.H1>Ticket Tracker App</StyledHome.H1>
         <br />
-        <nav>
-          <Link to="/auth/signup">Signup</Link>|
-          <Link to="/auth/login">Login</Link>
-        </nav>
+        <StyledHome.Nav>
+          <StyledHome.Button colour="palevioletred" as="a" href="/auth/signup">
+            Signup
+          </StyledHome.Button>
+          <StyledHome.Button as="a" href="/auth/login">
+            Login
+          </StyledHome.Button>
+        </StyledHome.Nav>
       </StrictMode>
-    </header>
+    </StyledHome.Header>
   );
 };
 
