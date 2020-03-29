@@ -2,7 +2,7 @@ import styled from "styled-components";
 import StyledHome from "../home";
 
 // TODO: create a reusable style for the home and signup styled components
-const Container = styled.body`
+const Container = styled.main`
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -15,24 +15,21 @@ const Container = styled.body`
 
 const FormWrapper = styled.form`
   display: grid;
+  gap: 15px;
 `;
 
-interface InputProps {
-  readonly type: string;
-  readonly name: string;
-  readonly placeholder?: string;
-  readonly required?: boolean;
-}
-const Input = styled.input<InputProps>``;
+const Input = styled.input`
+  padding: 5px;
+`;
 
 const InputWrapper = styled.div``;
 
-interface LabelProps {
-  readonly htmlFor: string;
-}
-const Label = styled.label<LabelProps>``;
+const Label = styled.label``;
 
-const Button = styled(StyledHome.Button)``;
+const Button = styled(StyledHome.Button)`
+  margin: 0;
+  background: transparent;
+`;
 
 export default {
   Container,

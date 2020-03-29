@@ -19,10 +19,9 @@ const Nav = styled.nav`
 
 // base button
 // the props expected
-interface ButtonProps {
+type ButtonProps = {
   readonly colour?: string;
-  readonly width?: number;
-}
+};
 
 const Button = styled.button<ButtonProps>`
   color: ${({ colour }) => (colour ? colour : "white")};

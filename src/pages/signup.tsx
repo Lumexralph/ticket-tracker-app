@@ -1,20 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 
 import StyledSignup from "../components/signup";
+import StyledHome from "../components/home";
+
+const initialAccountInfo = {
+  username: "",
+  password: "",
+};
 
 const Signup = () => {
+  const [{ username, password }, setAccountInfo] = useState(initialAccountInfo);
+
+  const clearState = () => {
+    setAccountInfo({ ...initialAccountInfo });
+  };
+
+  const handleChange = (e: import("react").ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setAccountInfo((prevState) => ({ ...prevState, [name]: value }));
+  };
+
+  const handleSubmit = (e: import("react").FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // clean form
+    clearState();
+  };
+
   return (
     <StyledSignup.Container>
-      <h2>User Signup</h2>
-
-      <StyledSignup.FormWrapper>
+      <StyledHome.H1>Ticket Tracker App</StyledHome.H1>
+      <StyledSignup.FormWrapper onSubmit={handleSubmit}>
         <StyledSignup.InputWrapper>
           <StyledSignup.Label htmlFor="username"></StyledSignup.Label>
           <StyledSignup.Input
             type="text"
             name="username"
-            placeholder="Enter your username"
-            required={true}
+            value={username}
+            autoComplete="username"
+            placeholder="enter your username"
+            onChange={handleChange}
+            required
           />
         </StyledSignup.InputWrapper>
 
@@ -23,8 +49,11 @@ const Signup = () => {
           <StyledSignup.Input
             type="password"
             name="password"
-            placeholder="Enter your password"
-            required={true}
+            value={password}
+            autoComplete="password"
+            placeholder="enter your password"
+            onChange={handleChange}
+            required
           />
         </StyledSignup.InputWrapper>
 
